@@ -1,3 +1,5 @@
+import Skills from "./components/Skills";
+
 export default function Home() {
   const name: string = "Olegario Aleno";
   const course: string = "BSIT";
@@ -19,6 +21,8 @@ export default function Home() {
       <p>Studying Next js {isLearningNext.toString()}</p>
 
       <p>Year: {year}</p>
+
+      <Skills />
     </main>
   );
 }
