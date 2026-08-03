@@ -7,6 +7,18 @@ export default function Home() {
   const certificate: number = 20;
   const isLearningNext: boolean = true;
   const year: number = 4;
+  const skills: string[] = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Next.js"
+];
+const projects: string[] = [
+  "AI Notes & Quiz App",
+  "MediStock",
+  "FreeCodeCamp Projects"
+];
 
   return (
     <main style={{ padding: "2rem" }}>
@@ -22,7 +34,11 @@ export default function Home() {
 
       <p>Year: {year}</p>
 
-      <Skills />
+      <Skills skills = {skills}/>
+
+      {projects.map((project)=>(
+        <p key={project}>{project}</p>
+      ))}
     </main>
   );
 }

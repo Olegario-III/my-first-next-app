@@ -1,12 +1,8 @@
-export default function Skills() {
-  const skills: string[] = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Next.js"
-  ];
+type SkillsProps = {
+  skills: string[];
+};
 
+export default function Skills({ skills }: SkillsProps) {
   return (
     <section>
       <h2>My Skills</h2>
