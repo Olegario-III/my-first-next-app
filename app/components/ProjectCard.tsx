@@ -12,7 +12,15 @@ export default function ProjectCard({
     year,
 }: ProjectCardProps){
     return (
-        <article>
+        <article style={{
+            border: "1px solid #ccc",
+            padding: "1rem",
+            marginBottom: "1rem",
+            borderRadius: "8px",
+            backgroundColor: "brown",
+            boxShadow: "12px 12px 2px 1px rgb(0 0 255 / 0.2)",
+            maxWidth: "400px",
+        }}>
             <h2>{title}</h2>
 
             <p>{description}</p>

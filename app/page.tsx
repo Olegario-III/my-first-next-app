@@ -1,4 +1,5 @@
 import Skills from "./components/Skills";
+import Counter from "./components/Counter";
 
 export default function Home() {
   const name: string = "Olegario Aleno";
@@ -39,6 +40,8 @@ const projects: string[] = [
       {projects.map((project)=>(
         <p key={project}>{project}</p>
       ))}
+
+      <Counter />
     </main>
   );
 }
