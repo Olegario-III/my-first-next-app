@@ -1,5 +1,6 @@
 import Skills from "./components/Skills";
 import Counter from "./components/Counter";
+import ProjectCard from "./components/ProjectCard";
 
 export default function Home() {
   const name: string = "Olegario Aleno";
@@ -9,17 +10,39 @@ export default function Home() {
   const isLearningNext: boolean = true;
   const year: number = 4;
   const skills: string[] = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Next.js"
-];
-const projects: string[] = [
-  "AI Notes & Quiz App",
-  "MediStock",
-  "FreeCodeCamp Projects"
-];
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Next.js"
+  ];
+  type Project = {
+    title: string;
+    description: string;
+    technology: string;
+    year: number;
+  };
+
+  const projects: Project[] = [
+    {
+      title: "AI Notes & Quiz App",
+      description: "An AI-powered notes and quiz application.",
+      technology: "React",
+      year: 2026,
+    },
+    {
+      title: "MediStock",
+      description: "A medicine inventory management system.",
+      technology: "React",
+      year: 2026,
+    },
+    {
+      title: "FreeCodeCamp Projects",
+      description: "My completed FreeCodeCamp projects.",
+      technology: "JavaScript",
+      year: 2026,
+    },
+  ];
 
   return (
     <main style={{ padding: "2rem" }}>
@@ -35,10 +58,16 @@ const projects: string[] = [
 
       <p>Year: {year}</p>
 
-      <Skills skills = {skills}/>
+      <Skills skills={skills} />
 
-      {projects.map((project)=>(
-        <p key={project}>{project}</p>
+      {projects.map((project) => (
+        <ProjectCard
+          key={project.title}
+          title={project.title}
+          description={project.description}
+          technology={project.technology}
+          year={project.year}
+        />
       ))}
 
       <Counter />
