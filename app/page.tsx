@@ -1,6 +1,7 @@
 import Skills from "./components/Skills";
 import Counter from "./components/Counter";
 import ProjectCard from "./components/ProjectCard";
+import NameInput from "./components/NameInput";
 
 export default function Home() {
   const name: string = "Olegario Aleno";
@@ -69,6 +70,8 @@ export default function Home() {
           year={project.year}
         />
       ))}
+
+      <NameInput />
 
       <Counter />
     </main>
