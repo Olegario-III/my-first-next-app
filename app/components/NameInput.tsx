@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
@@ -10,6 +10,7 @@ export default function NameInput() {
             <input
             type="text"
             value={name}
+            placeholder="Enter your name"
             onChange={(event) => setName(event.target.value)} 
             />
 

@@ -6,7 +6,7 @@ import NameInput from "./components/NameInput";
 export default function Home() {
   const name: string = "Olegario Aleno";
   const course: string = "BSIT";
-  const favp: string = "javaScript"
+  const favp: string = "JavaScript";
   const certificate: number = 20;
   const isLearningNext: boolean = true;
   const year: number = 4;
