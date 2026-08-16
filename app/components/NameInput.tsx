@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import type { FormEvent } from "react";
 
 export default function NameInput() {
     const [name, setName] = useState("");
+    const [sname, setSname] = useState("");
+
+    const handleSubmit = (event: FormEvent) => {
+        event.preventDefault();
+
+        console.log(name);
+        setSname(name);
+    };
 
     return(
-        <div>
+        <form onSubmit={handleSubmit}>
             <input
             type="text"
             value={name}
@@ -14,7 +23,12 @@ export default function NameInput() {
             onChange={(event) => setName(event.target.value)} 
             />
 
-            <p>hello, {name}!</p>
-        </div>
+            <button type="submit">
+                Submit
+            </button>
+
+            <p>hello, {sname}!</p>
+            <p>Submitted name : {sname}!</p>
+        </form>
     );
 }
