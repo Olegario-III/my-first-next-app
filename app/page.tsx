@@ -2,6 +2,7 @@ import Skills from "./components/Skills";
 import Counter from "./components/Counter";
 import ProjectCard from "./components/ProjectCard";
 import NameInput from "./components/NameInput";
+import UserForm from "./components/UserForm";
 
 export default function Home() {
   const name: string = "Olegario Aleno";
@@ -60,6 +61,8 @@ export default function Home() {
       <p>Year: {year}</p>
 
       <Skills skills={skills} />
+
+      <UserForm />
 
       {projects.map((project) => (
         <ProjectCard
