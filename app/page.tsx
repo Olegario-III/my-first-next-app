@@ -18,12 +18,12 @@ export default function Home() {
     "React",
     "Next.js"
   ];
-  type Project = {
+  interface Project {
     title: string;
     description: string;
     technology: string;
     year: number;
-  };
+  }
 
   const projects: Project[] = [
     {

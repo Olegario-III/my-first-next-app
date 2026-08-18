@@ -1,11 +1,15 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
-type User = {
+interface User {
     name: string;
     email: string;
     course: string;
+}
+
+interface Student extends User {
+    studentId: number;
 }
 
 export default function UserForm() {
@@ -15,11 +19,19 @@ export default function UserForm() {
         course: "",
     });
 
+    const student: Student = {
+        name: "Olegario",
+        email: "gary@example.com",
+        course: "BSIT",
+        studentId: 12345,
+    }
+
     return (
         <div>
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
             <p>Course: {user.course}</p>
+            <p>Student ID: {student.studentId}</p>
 
             <input
             type="text"
