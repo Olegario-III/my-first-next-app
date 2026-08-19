@@ -1,16 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-interface User {
-    name: string;
-    email: string;
-    course: string;
-}
-
-interface Student extends User {
-    studentId: number;
-}
+import type { User, Student } from "../types/user";
 
 export default function UserForm() {
     const [user, setUser] = useState<User>({
@@ -24,7 +15,7 @@ export default function UserForm() {
         email: "gary@example.com",
         course: "BSIT",
         studentId: 12345,
-    }
+    };
 
     return (
         <div>

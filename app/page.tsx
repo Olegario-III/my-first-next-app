@@ -3,6 +3,8 @@ import Counter from "./components/Counter";
 import ProjectCard from "./components/ProjectCard";
 import NameInput from "./components/NameInput";
 import UserForm from "./components/UserForm";
+import type { Project } from "./types/project";
+import type { Skill } from "./types/skill";
 
 export default function Home() {
   const name: string = "Olegario Aleno";
@@ -11,19 +13,13 @@ export default function Home() {
   const certificate: number = 20;
   const isLearningNext: boolean = true;
   const year: number = 4;
-  const skills: string[] = [
+  const skills: Skill[] = [
     "HTML",
     "CSS",
     "JavaScript",
     "React",
     "Next.js"
   ];
-  interface Project {
-    title: string;
-    description: string;
-    technology: string;
-    year: number;
-  }
 
   const projects: Project[] = [
     {
