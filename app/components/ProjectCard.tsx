@@ -1,15 +1,11 @@
+import type { Project }  from "../types/project";
+
 type ProjectCardProps = {
-    title: string;
-    description: string;
-    technology: string;
-    year: number;
+    project: Project;
 };
 
 export default function ProjectCard({
-    title,
-    description,
-    technology,
-    year,
+    project,
 }: ProjectCardProps){
     return (
         <article style={{
@@ -21,12 +17,12 @@ export default function ProjectCard({
             boxShadow: "12px 12px 2px 1px rgb(0 0 255 / 0.2)",
             maxWidth: "400px",
         }}>
-            <h2>{title}</h2>
+            <h2>{project.title}</h2>
 
-            <p>{description}</p>
+            <p>{project.description}</p>
 
-            <p>Technology: {technology}</p>
-            <p>year: {year}</p>
+            <p>Technology: {project.technology}</p>
+            <p>year: {project.year}</p>
         </article>
     );
 }

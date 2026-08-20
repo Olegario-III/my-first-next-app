@@ -63,10 +63,7 @@ export default function Home() {
       {projects.map((project) => (
         <ProjectCard
           key={project.title}
-          title={project.title}
-          description={project.description}
-          technology={project.technology}
-          year={project.year}
+          project={project}
         />
       ))}
 
