@@ -1,11 +1,5 @@
 import ProjectCard from "../components/ProjectCard";
-
-type Project = {
-  title: string;
-  description: string;
-  technology: string;
-  year: number;
-};
+import type { Project } from "../types/project";
 
 const projects: Project[] = [
   {
@@ -24,8 +18,13 @@ const projects: Project[] = [
     title: "FreeCodeCamp Projects",
     description: "My completed FreeCodeCamp projects.",
     technology: "JavaScript",
-    year: 2024
+    year: 2024,
   },
+  {
+    title: "My New Project",
+    description: "Something I'm building",
+    technology: "Next.js",
+  }
 ];
 
 export default function Projects() {
@@ -36,10 +35,7 @@ export default function Projects() {
       {projects.map((project) => (
         <ProjectCard
           key={project.title}
-          title={project.title}
-          description={project.description}
-          technology={project.technology}
-          year={project.year}
+          project={project}
         />
       ))}
     </main>
