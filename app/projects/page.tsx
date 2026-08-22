@@ -5,13 +5,13 @@ const projects: Project[] = [
   {
     title: "AI Notes & Quiz App",
     description: "An AI-powered notes and quiz application.",
-    technology: "Next.js",
+    technology: "TypeScript",
     year: 2026,
   },
   {
     title: "MediStock",
     description: "A medicine inventory management system.",
-    technology: "React",
+    technology: "Node.js",
     year: 2025,
   },
   {
