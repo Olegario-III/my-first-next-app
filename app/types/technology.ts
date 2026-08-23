@@ -4,4 +4,7 @@ export type Technology =
     | "JavaScript"
     | "TypeScript"
     | "Node.js"
+    | "HTML"
+    | "CSS"
+    | "Flutter"
     | "Express";
