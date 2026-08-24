@@ -22,6 +22,9 @@ export default function ProjectCard({
             <p>{project.description}</p>
 
             <p>Technology: {project.technology}</p>
+
+            <p>Status: {project.status}</p>
+            
             {project.year ? (<p>year: {project.year}</p>
             ):(
                 <p>Year: Not specified</p>

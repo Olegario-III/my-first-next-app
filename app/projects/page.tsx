@@ -7,23 +7,27 @@ const projects: Project[] = [
     description: "An AI-powered notes and quiz application.",
     technology: "TypeScript",
     year: 2026,
+    status: "completed",
   },
   {
     title: "MediStock",
     description: "A medicine inventory management system.",
     technology: "Node.js",
     year: 2025,
+    status: "planned",
   },
   {
     title: "FreeCodeCamp Projects",
     description: "My completed FreeCodeCamp projects.",
     technology: "JavaScript",
     year: 2024,
+    status: "completed",
   },
   {
     title: "My New Project",
     description: "Something I'm building",
     technology: "Next.js",
+    status: "in-progress",
   }
 ];
 
