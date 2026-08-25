@@ -1,10 +1,21 @@
 import type { Technology } from "./technology";
-import type { ProjectStatus } from "./status";
 
-export interface Project {
-    title: string;
-    description: string;
-    technology: Technology;
-    year?: number;
-    status: ProjectStatus;
-  }
+type BaseProject = {
+  title: string;
+  description: string;
+  technology: Technology;
+};
+
+export type Project =
+  | (BaseProject & {
+      status: "completed";
+      completedYear: number;
+    })
+  | (BaseProject & {
+      status: "in-progress";
+      progress: number;
+    })
+  | (BaseProject & {
+      status: "planned";
+      plannedYear: number;
+    });

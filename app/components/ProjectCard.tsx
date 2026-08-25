@@ -1,4 +1,4 @@
-import type { Project }  from "../types/project";
+import type { Project } from "../types/project";
 
 type ProjectCardProps = {
     project: Project;
@@ -6,7 +6,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({
     project,
-}: ProjectCardProps){
+}: ProjectCardProps) {
     return (
         <article style={{
             border: "1px solid #ccc",
@@ -23,12 +23,18 @@ export default function ProjectCard({
 
             <p>Technology: {project.technology}</p>
 
-            <p>Status: {project.status}</p>
-            
-            {project.year ? (<p>year: {project.year}</p>
-            ):(
-                <p>Year: Not specified</p>
+            {project.status === "completed" && (
+                <p>Completed: {project.completedYear}</p>
             )}
+
+            {project.status === "in-progress" && (
+                <p>Progress: {project.progress}%</p>
+            )}
+
+            {project.status === "planned" && (
+                <p>Planned for: {project.plannedYear}</p>
+            )}
+
         </article>
     );
 }
