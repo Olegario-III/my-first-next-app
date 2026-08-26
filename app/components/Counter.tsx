@@ -9,13 +9,13 @@ export default function Counter() {
         <div>
             <p>Count: {count}</p>
 
-            <button onClick={() => setCount(count + 1)}>
+            <button onClick={(): void => setCount(count + 1)}>
                 [+1]
             </button>
-            <button onClick={() => setCount(count - 1)}>
+            <button onClick={(): void => setCount(count - 1)}>
                 [-1]
             </button>
-            <button onClick={() => setCount(0)}>
+            <button onClick={(): void => setCount(0)}>
                 [reset]
             </button>
         </div>
