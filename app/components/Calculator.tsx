@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 
+type MathFunction =(a: number, b: number)=> number;
+
 export default function Calculator() {
   const [result, setResult] = useState(0);
 
-  function add(a: number, b: number): number {
+  const add: MathFunction = (a, b) => {
     return a + b;
-  }
+  };
 
   function subtract(a: number, b: number): number {
     return a - b;
@@ -17,7 +19,7 @@ export default function Calculator() {
     return a * b;
   }
 
-  function devide(a: number, b: number): number {
+  function divide(a: number, b: number): number {
     return a / b;
   }
 
@@ -39,8 +41,8 @@ export default function Calculator() {
         Multiply 10 * 5
       </button>
 
-      <button onClick={() => setResult(devide(10, 5))}>
-        Devide 10 / 5
+      <button onClick={() => setResult(divide(10, 5))}>
+        Divide 10 / 5
       </button>
     </div>
   );
