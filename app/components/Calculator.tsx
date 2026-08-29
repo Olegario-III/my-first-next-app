@@ -23,6 +23,16 @@ export default function Calculator() {
     return a / b;
   }
 
+  function calculate(
+    number: number,
+    operation: (value: number) => number
+  ): number {
+    return operation(number);
+  }
+
+  const doubled = calculate(10, (value) => value * 2);
+  const squared = calculate(5, (value) => value * value);
+
   return (
     <div>
       <h2>Calculator</h2>
@@ -44,6 +54,9 @@ export default function Calculator() {
       <button onClick={() => setResult(divide(10, 5))}>
         Divide 10 / 5
       </button>
+
+      <p>Doubled: {doubled}</p>
+      <p>Squared: {squared}</p>
     </div>
   );
 }
