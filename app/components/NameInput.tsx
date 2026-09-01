@@ -1,22 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import type { FormEvent, ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
 
 export default function NameInput() {
     const [name, setName] = useState("");
     const [sname, setSname] = useState("");
+    const [age, setAge] = useState("");
 
     const handleSubmit = (
-        event: FormEvent<HTMLFormElement>
+        event: React.SubmitEvent    <HTMLFormElement>
     ): void => {
         event.preventDefault();
+
+        console.log(name);
+        setSname(name);
     };
 
-    const handleChange = (
-        event: React.ChangeEvent<HTMLInputElement>
+    const handleNameChange = (
+        event: ChangeEvent<HTMLInputElement>
     ): void => {
         setName(event.target.value);
+    };
+
+
+    const handleAgeChange = (
+        event: ChangeEvent<HTMLInputElement>
+    ): void => {
+        setAge(event.target.value);
     };
 
     return(
@@ -25,7 +36,14 @@ export default function NameInput() {
             type="text"
             value={name}
             placeholder="Enter your name"
-            onChange={handleChange} 
+            onChange={handleNameChange} 
+            />
+
+            <input
+            type="number"
+            value={age}
+            placeholder="Enter your Age"
+            onChange={handleAgeChange} 
             />
 
             <button type="submit">
@@ -34,6 +52,7 @@ export default function NameInput() {
 
             <p>hello, {sname}!</p>
             <p>Submitted name : {sname}!</p>
+            <p>Age: {age}</p>
         </form>
     );
 }
