@@ -7,3 +7,9 @@ type Profile = {
     age: number;
     course: string;
 }
+
+const [profile, setProfile] = useState<Profile>({
+    name: "",
+    age: 0,
+    course: "",
+});
