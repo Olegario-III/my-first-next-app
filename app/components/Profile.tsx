@@ -13,3 +13,13 @@ const [profile, setProfile] = useState<Profile>({
     age: 0,
     course: "",
 });
+
+export default function Profile(){
+    return(
+        <div>
+            <p>Name: {profile.name}</p>
+            <p>Age: {profile.age}</p>
+            <p>Course: {profile.course}</p>
+        </div>
+    );
+}
