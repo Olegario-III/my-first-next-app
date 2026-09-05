@@ -17,6 +17,14 @@ const [profile, setProfile] = useState<Profile>({
 export default function Profile(){
     return(
         <div>
+            <button
+                onClick={()=>
+                    setProfile({
+                        ...profile,
+                        name: "Olegario"
+                    })
+                }
+            >Set Name</button>
             <p>Name: {profile.name}</p>
             <p>Age: {profile.age}</p>
             <p>Course: {profile.course}</p>
