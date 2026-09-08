@@ -21,10 +21,26 @@ export default function Profile(){
                 onClick={()=>
                     setProfile({
                         ...profile,
-                        name: "Olegario"
+                        name: "Olegario",
                     })
                 }
             >Set Name</button>
+            <button
+                onClick={()=>
+                    setProfile({
+                        ...profile,
+                        age: 29,
+                    })
+                }
+            >Set Age</button>
+            <button
+                onClick={()=>
+                    setProfile({
+                        ...profile,
+                        course: "BSIT",
+                    })
+                }
+            >Set Course</button>
             <p>Name: {profile.name}</p>
             <p>Age: {profile.age}</p>
             <p>Course: {profile.course}</p>
