@@ -14,6 +14,9 @@ const [profile, setProfile] = useState<Profile>({
     course: "",
 });
 
+const [selectedProfile, setSelectedProfile] =
+    useState<Profile | null>(null);
+
 export default function Profile(){
     return(
         <div>
@@ -41,9 +44,18 @@ export default function Profile(){
                     })
                 }
             >Set Course</button>
+
+            <button onClick={()=>setSelectedProfile(profile)}>
+                Select Profile
+            </button>
+
+
             <p>Name: {profile.name}</p>
             <p>Age: {profile.age}</p>
             <p>Course: {profile.course}</p>
+            {selectedProfile && (
+                <p>Selected: {selectedProfile.name}</p>
+            )}
         </div>
     );
 }
