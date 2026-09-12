@@ -8,20 +8,23 @@ type Profile = {
     course: string;
 }
 
-const [profile, setProfile] = useState<Profile>({
-    name: "",
-    age: 0,
-    course: "",
-});
+export default function Profile() {
 
-const [selectedProfile, setSelectedProfile] =
-    useState<Profile | null>(null);
 
-export default function Profile(){
-    return(
+    const [profile, setProfile] = useState<Profile>({
+        name: "",
+        age: 0,
+        course: "",
+    });
+
+    const [selectedProfile, setSelectedProfile] =
+        useState<Profile | null>(null);
+
+
+    return (
         <div>
             <button
-                onClick={()=>
+                onClick={() =>
                     setProfile({
                         ...profile,
                         name: "Olegario",
@@ -29,7 +32,7 @@ export default function Profile(){
                 }
             >Set Name</button>
             <button
-                onClick={()=>
+                onClick={() =>
                     setProfile({
                         ...profile,
                         age: 29,
@@ -37,7 +40,7 @@ export default function Profile(){
                 }
             >Set Age</button>
             <button
-                onClick={()=>
+                onClick={() =>
                     setProfile({
                         ...profile,
                         course: "BSIT",
@@ -45,7 +48,7 @@ export default function Profile(){
                 }
             >Set Course</button>
 
-            <button onClick={()=>setSelectedProfile(profile)}>
+            <button onClick={() => setSelectedProfile(profile)}>
                 Select Profile
             </button>
 
