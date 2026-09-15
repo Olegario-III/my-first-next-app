@@ -30,6 +30,19 @@ export default function ProfileList() {
                 <p>{profile.course}</p>
                 </div>
             ))}
+
+            <button
+                onClick={() =>
+                    setProfiles([
+                        ...profiles,
+                        {
+                        name: "Maria",
+                        age: 22,
+                        course: "BSIT"
+                        },
+                    ])
+                }
+            >Add Profile</button>
         </div>
     );
 }
