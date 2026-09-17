@@ -43,6 +43,14 @@ export default function ProfileList() {
                     ])
                 }
             >Add Profile</button>
+            <button
+                onClick={()=>
+                    setProfiles(
+                        profiles.filter((profile) =>profile.name !== "Juan")
+                    )
+                }
+            >Remove Juan
+            </button>
         </div>
     );
 }
