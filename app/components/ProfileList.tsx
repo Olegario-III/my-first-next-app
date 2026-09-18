@@ -51,6 +51,18 @@ export default function ProfileList() {
                 }
             >Remove Juan
             </button>
+            <button
+                onClick={()=>
+                    setProfiles((prev) =>
+                        prev.map ((profile) =>
+                            profile.name === "Juan"
+                        ? { ...profile, age:26 }
+                        : profile
+                    )
+                    )
+                }
+            >Update Juan
+            </button>
         </div>
     );
 }
