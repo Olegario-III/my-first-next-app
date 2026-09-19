@@ -21,6 +21,11 @@ export default function ProfileList() {
         course: "BSIT",
     },
     ]);
+
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("");
+    const [course, setCourse] = useState("");
+
     return (
         <div>
             {profiles.map((profile)=> (
