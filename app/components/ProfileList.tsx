@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { SubmitEvent, ChangeEvent } from "react";
 
 type Profile = {
     name: string;
@@ -25,6 +26,10 @@ export default function ProfileList() {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [course, setCourse] = useState("");
+
+    const handleSubmit =(e: SubmitEvent)=>{
+        e.preventDefault();
+    }
 
     return (
         <div>
