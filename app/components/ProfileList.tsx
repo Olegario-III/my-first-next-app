@@ -31,6 +31,12 @@ export default function ProfileList() {
         e.preventDefault();
     }
 
+    const newProfile: Profile = {
+        name: name,
+        age: Number(age),
+        course: course,
+    };
+
     return (
         <div>
             {profiles.map((profile)=> (
