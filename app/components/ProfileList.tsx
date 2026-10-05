@@ -29,13 +29,16 @@ export default function ProfileList() {
 
     const handleSubmit =(e: SubmitEvent)=>{
         e.preventDefault();
+        const newProfile: Profile = {
+            name: name,
+            age: Number(age),
+            course: course,
+        };
+        setName("");
+        setAge("");
+        setCourse("");
     }
 
-    const newProfile: Profile = {
-        name: name,
-        age: Number(age),
-        course: course,
-    };
 
     return (
         <div>
