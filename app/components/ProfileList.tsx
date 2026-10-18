@@ -12,28 +12,32 @@ type Profile = {
 export default function ProfileList() {
     const [profiles, setProfiles] = useState<Profile[]>([
         {
-        name: "Olegario",
-        age: 29,
-        course: "BSIT",
-    },
-    {
-        name: "Juan",
-        age: 25,
-        course: "BSIT",
-    },
+            name: "Olegario",
+            age: 29,
+            course: "BSIT",
+        },
+        {
+            name: "Juan",
+            age: 25,
+            course: "BSIT",
+        },
     ]);
 
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [course, setCourse] = useState("");
 
-    const handleSubmit =(e: SubmitEvent)=>{
+    const handleSubmit = (e: SubmitEvent) => {
         e.preventDefault();
         const newProfile: Profile = {
             name: name,
             age: Number(age),
             course: course,
         };
+        setProfiles((prev) => [
+            ...prev,
+            newProfile
+        ]);
         setName("");
         setAge("");
         setCourse("");
@@ -42,11 +46,11 @@ export default function ProfileList() {
 
     return (
         <div>
-            {profiles.map((profile)=> (
+            {profiles.map((profile) => (
                 <div key={profile.name}>
-                <p>{profile.name}</p>
-                <p>{profile.age}</p>
-                <p>{profile.course}</p>
+                    <p>{profile.name}</p>
+                    <p>{profile.age}</p>
+                    <p>{profile.course}</p>
                 </div>
             ))}
 
@@ -55,33 +59,55 @@ export default function ProfileList() {
                     setProfiles([
                         ...profiles,
                         {
-                        name: "Maria",
-                        age: 22,
-                        course: "BSIT"
+                            name: "Maria",
+                            age: 22,
+                            course: "BSIT"
                         },
                     ])
                 }
             >Add Profile</button>
             <button
-                onClick={()=>
+                onClick={() =>
                     setProfiles(
-                        profiles.filter((profile) =>profile.name !== "Juan")
+                        profiles.filter((profile) => profile.name !== "Juan")
                     )
                 }
             >Remove Juan
             </button>
             <button
-                onClick={()=>
+                onClick={() =>
                     setProfiles((prev) =>
-                        prev.map ((profile) =>
+                        prev.map((profile) =>
                             profile.name === "Juan"
-                        ? { ...profile, age:26 }
-                        : profile
-                    )
+                                ? { ...profile, age: 26 }
+                                : profile
+                        )
                     )
                 }
             >Update Juan
             </button>
+
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Name"
+                    value={name}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Age"
+                    value={age}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setAge(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Course"
+                    value={course}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setCourse(e.target.value)}
+                />
+                <button type="submit">Add Profile</button>
+            </form>
         </div>
     );
 }
