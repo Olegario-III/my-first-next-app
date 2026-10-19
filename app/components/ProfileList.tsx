@@ -27,7 +27,7 @@ export default function ProfileList() {
     const [age, setAge] = useState("");
     const [course, setCourse] = useState("");
 
-    const handleSubmit = (e: SubmitEvent) => {
+    const handleSubmit = (e: SubmitEvent<HTMLFormElement>): void => {
         e.preventDefault();
         const newProfile: Profile = {
             name: name,
@@ -92,18 +92,22 @@ export default function ProfileList() {
                     type="text"
                     placeholder="Name"
                     value={name}
+                    required
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                 />
                 <input
                     type="number"
                     placeholder="Age"
                     value={age}
+                    min="1"
+                    required
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setAge(e.target.value)}
                 />
                 <input
                     type="text"
                     placeholder="Course"
                     value={course}
+                    required
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setCourse(e.target.value)}
                 />
                 <button type="submit">Add Profile</button>
