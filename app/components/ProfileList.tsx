@@ -26,6 +26,7 @@ export default function ProfileList() {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [course, setCourse] = useState("");
+    const [error, setError] = useState("");
 
     const handleSubmit = (e: SubmitEvent<HTMLFormElement>): void => {
         e.preventDefault();
