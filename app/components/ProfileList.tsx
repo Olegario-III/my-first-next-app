@@ -30,6 +30,24 @@ export default function ProfileList() {
 
     const handleSubmit = (e: SubmitEvent<HTMLFormElement>): void => {
         e.preventDefault();
+
+        setError("");
+
+        if (Number(age) <= 0) {
+            setError("Age must be greater than zero.");
+            return;
+        }
+
+        const duplicate = profiles.some(
+            (profile) =>
+                profile.name.toLowerCase() === name.trim().toLowerCase()
+        );
+
+        if (duplicate) {
+            setError("This name already exists.");
+            return;
+        }
+
         const newProfile: Profile = {
             name: name,
             age: Number(age),
@@ -87,6 +105,8 @@ export default function ProfileList() {
                 }
             >Update Juan
             </button>
+
+            {error && <p>{error}</p>}
 
             <form onSubmit={handleSubmit}>
                 <input
