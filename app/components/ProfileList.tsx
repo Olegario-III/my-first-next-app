@@ -33,8 +33,10 @@ export default function ProfileList() {
 
         setError("");
 
-        if (Number(age) <= 0) {
-            setError("Age must be greater than zero.");
+        const numericAge = Number(age);
+
+        if (!Number.isFinite(numericAge) || numericAge <= 0) {
+            setError("Age must be a valid number greater than zero.");
             return;
         }
 
@@ -49,7 +51,7 @@ export default function ProfileList() {
         }
 
         const newProfile: Profile = {
-            name: name,
+            name: name.trim(),
             age: Number(age),
             course: course,
         };
