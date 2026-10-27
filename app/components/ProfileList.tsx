@@ -52,8 +52,8 @@ export default function ProfileList() {
 
         const newProfile: Profile = {
             name: name.trim(),
-            age: Number(age),
-            course: course,
+            age: numericAge,
+            course: course.trim(),
         };
         setProfiles((prev) => [
             ...prev,
