@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { SubmitEvent, ChangeEvent } from "react";
 
 type Profile = {
+    id: number;
     name: string;
     age: number;
     course: string;
@@ -12,11 +13,13 @@ type Profile = {
 export default function ProfileList() {
     const [profiles, setProfiles] = useState<Profile[]>([
         {
+            id: 1,
             name: "Olegario",
             age: 29,
             course: "BSIT",
         },
         {
+            id: 2,
             name: "Juan",
             age: 25,
             course: "BSIT",
@@ -51,6 +54,7 @@ export default function ProfileList() {
         }
 
         const newProfile: Profile = {
+            id: Date.now(),
             name: name.trim(),
             age: numericAge,
             course: course.trim(),
@@ -68,7 +72,7 @@ export default function ProfileList() {
     return (
         <div>
             {profiles.map((profile) => (
-                <div key={profile.name}>
+                <div key={profile.id}>
                     <p>{profile.name}</p>
                     <p>{profile.age}</p>
                     <p>{profile.course}</p>
@@ -80,6 +84,7 @@ export default function ProfileList() {
                     setProfiles([
                         ...profiles,
                         {
+                            id: Date.now(),
                             name: "Maria",
                             age: 22,
                             course: "BSIT"
