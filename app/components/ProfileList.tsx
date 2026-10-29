@@ -95,7 +95,7 @@ export default function ProfileList() {
             <button
                 onClick={() =>
                     setProfiles(
-                        profiles.filter((profile) => profile.name !== "Juan")
+                        profiles.filter((profile) => profile.id !== 2)
                     )
                 }
             >Remove Juan
@@ -104,7 +104,7 @@ export default function ProfileList() {
                 onClick={() =>
                     setProfiles((prev) =>
                         prev.map((profile) =>
-                            profile.name === "Juan"
+                            profile.id === 2
                                 ? { ...profile, age: 26 }
                                 : profile
                         )
