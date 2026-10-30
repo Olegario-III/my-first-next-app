@@ -76,6 +76,14 @@ export default function ProfileList() {
                     <p>{profile.name}</p>
                     <p>{profile.age}</p>
                     <p>{profile.course}</p>
+                    <button
+                onClick={() =>
+                    setProfiles((prev)=>
+                        prev.filter((item) => item.id !== profile.id)
+                    )
+                }
+            >Delete
+            </button>
                 </div>
             ))}
 
@@ -92,14 +100,7 @@ export default function ProfileList() {
                     ])
                 }
             >Add Profile</button>
-            <button
-                onClick={() =>
-                    setProfiles(
-                        profiles.filter((profile) => profile.id !== 2)
-                    )
-                }
-            >Remove Juan
-            </button>
+            
             <button
                 onClick={() =>
                     setProfiles((prev) =>
