@@ -79,7 +79,10 @@ export default function ProfileList() {
                     <p>{profile.course}</p>
                     <button
                         onClick={() => {
-                            // We'll write the logic here
+                            setEditingId(profile.id);
+                            setName(profile.name);
+                            setAge(String(profile.age));   
+                            setCourse(profile.course);   
                         }}
                     >
                         Edit
