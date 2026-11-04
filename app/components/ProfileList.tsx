@@ -39,14 +39,17 @@ export default function ProfileList() {
 
         const numericAge = Number(age);
 
+        // Age validation
         if (!Number.isFinite(numericAge) || numericAge <= 0) {
             setError("Age must be a valid number greater than zero.");
             return;
         }
 
+        // Duplicate name check (ignore the profile currently being edited)
         const duplicate = profiles.some(
             (profile) =>
-                profile.name.toLowerCase() === name.trim().toLowerCase()
+                profile.name.toLowerCase() === name.trim().toLowerCase() &&
+                profile.id !== editingId
         );
 
         if (duplicate) {
@@ -54,20 +57,38 @@ export default function ProfileList() {
             return;
         }
 
-        const newProfile: Profile = {
-            id: Date.now(),
-            name: name.trim(),
-            age: numericAge,
-            course: course.trim(),
-        };
-        setProfiles((prev) => [
-            ...prev,
-            newProfile
-        ]);
+        // ========== ADD vs EDIT LOGIC ==========
+        if (editingId !== null) {
+            // Update existing profile
+            setProfiles((prev) =>
+                prev.map((profile) =>
+                    profile.id === editingId
+                        ? {
+                            ...profile,
+                            name: name.trim(),
+                            age: numericAge,
+                            course: course.trim(),
+                        }
+                        : profile
+                )
+            );
+            setEditingId(null); // exit edit mode
+        } else {
+            // Add new profile
+            const newProfile: Profile = {
+                id: Date.now(),
+                name: name.trim(),
+                age: numericAge,
+                course: course.trim(),
+            };
+            setProfiles((prev) => [...prev, newProfile]);
+        }
+
+        // Clear the form
         setName("");
         setAge("");
         setCourse("");
-    }
+    };
 
 
     return (
@@ -81,8 +102,8 @@ export default function ProfileList() {
                         onClick={() => {
                             setEditingId(profile.id);
                             setName(profile.name);
-                            setAge(String(profile.age));   
-                            setCourse(profile.course);   
+                            setAge(String(profile.age));
+                            setCourse(profile.course);
                         }}
                     >
                         Edit
